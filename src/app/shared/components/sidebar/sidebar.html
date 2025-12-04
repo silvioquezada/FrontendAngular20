@@ -1,7 +1,7 @@
 <div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
   <div class="sidebar-header">
     <a href="#" class="sidebar-logo">{{
-      isSidebarCollapsed ? 'C' : 'CodeWithChintan'
+      isSidebarCollapsed ? 'S' : 'System Fact'
     }}</a>
   </div>
   <div class="sidebar-menu">
@@ -9,7 +9,7 @@
       <ng-container *ngFor="let item of menuItems">
         <li class="sidebar-menu-item">
           <a
-            href="#"
+            [routerLink]="item.route || '#'"
             class="sidebar-item"
             [ngClass]="{
               'has-children': item.children,
@@ -31,7 +31,9 @@
             class="sidebar-submenu"
           >
             <li *ngFor="let child of item.children">
-              <a href="#" class="sidebar-item sidebar-subitem">
+              <a 
+                  [routerLink]="child.route || '#'"
+                  class="sidebar-item sidebar-subitem">
                 <i [class]="child.icon"></i>
                 <span class="sidebar-item-text">{{ child.label }}</span>
               </a>

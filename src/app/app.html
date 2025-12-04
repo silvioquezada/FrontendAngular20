@@ -26,75 +26,7 @@
 
 
 
-      <div class="card shadow-sm mt-4">
-        <div class="card-header d-flex justify-content-between align-items-center bg-white border-bottom">
-            <h4 class="mb-0 text-dark">Listado de Productos</h4>
-            
-            <button type="button" class="btn btn-primary btn-sm">
-                <i class="fas fa-plus me-2"></i> Nuevo Producto
-            </button>
-        </div>
-        
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Categoría</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col" class="text-center">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>P001</td>
-                            <td>Monitor UltraWide 34"</td>
-                            <td>Electrónica</td>
-                            <td>$450.00</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-sm btn-outline-info me-2">
-                                    <i class="fas fa-edit"></i> </button>
-                                <button type="button" class="btn btn-sm btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i> </button>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>P002</td>
-                            <td>Teclado Mecánico RGB</td>
-                            <td>Periféricos</td>
-                            <td>$95.50</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-sm btn-outline-info me-2">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>P003</td>
-                            <td>Mouse Pad XL Gaming</td>
-                            <td>Accesorios</td>
-                            <td>$25.00</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-sm btn-outline-info me-2">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+      <router-outlet></router-outlet>
 
 
 

@@ -5,6 +5,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 interface MenuItem {
   icon: string;
   label: string;
+  route?: string;
   children?: MenuItem[];
   isOpen?: boolean;
 }
@@ -14,8 +15,8 @@ interface MenuItem {
   selector: 'app-sidebar',
   imports: [
     CommonModule,
-    RouterLink, 
-    RouterLinkActive
+    RouterLink
+    //RouterLinkActive
   ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
@@ -29,24 +30,21 @@ export class Sidebar {
     {
       icon: 'fas fa-home',
       label: 'Dashboard',
-      isOpen: false,
-      children: [
-        { icon: 'fas fa-chart-pie', label: 'Analytics' },
-        { icon: 'fas fa-tasks', label: 'Projects' },
-      ]
+      route: '/'
     },
     {
       icon: 'fas fa-cog',
-      label: 'Settings',
+      label: 'Configuración',
       isOpen: false,
       children: [
-        { icon: 'fas fa-user', label: 'Profile' },
-        { icon: 'fas fa-lock', label: 'Security' },
+        { icon: 'fas fa-user', label: 'Perfil',  route: '/productos'},
+        { icon: 'fas fa-lock', label: 'Contraseña' },
       ]
     },
     {
       icon: 'fas fa-envelope',
-      label: 'Messages'
+      label: 'Productos',
+      route: '/productos'
     }
   ];
 

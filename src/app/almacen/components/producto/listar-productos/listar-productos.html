@@ -1,0 +1,54 @@
+<app-create-producto (datosenvio)="recibirDatosGuardar($event)"></app-create-producto>
+
+<div class="card shadow-sm mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center bg-white border-bottom">
+            <h4 class="mb-0 text-dark">Listado de Productos</h4>
+            
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalRegistroProducto">
+                <i class="fas fa-plus me-2"></i> Nuevo Producto
+            </button>
+        </div>
+        
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr *ngFor="let producto of productos">
+                                <td>{{ producto.codigo }}</td>
+                                <td>{{ producto.descripcion }}</td>
+                                <td>{{ producto.categoria }}</td>
+                                <td>{{ producto.precio }}</td>
+                                <td class="text-center">
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-sm btn-outline-info me-2"
+                                        (click)="editarProducto(producto)"
+                                    >
+                                        <i class="fas fa-edit"></i> 
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-sm btn-outline-danger"
+                                        (click)="eliminarProducto(producto.codigo)"
+                                    >
+                                        <i class="fas fa-trash-alt"></i> 
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+      </div>

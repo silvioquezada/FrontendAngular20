@@ -1,16 +1,8 @@
-/*SHARED*/
-/*SHARED*/
-/*SHARED*/
+Ejecutar
+npx ng serve -o
+
 ng g c shared/components/sidebar --skip-tests
-
-ng g s shared/services/access --skip-tests
-ng g s shared/services/error --skip-tests
-ng g s shared/services/body-style --skip-tests
-ng g s shared/services/image --skip-tests
-ng g s shared/services/storage-encryption --skip-tests
-ng g s shared/services/user-session --skip-tests
-ng g s shared/services/loader --skip-tests
-
-
-
-ng g c producto/components/producto/listar-productos --skip-tests
+ng g c shared/components/dashboard --skip-tests
+ng g c almacen/components/producto/listar-productos --skip-tests
+ng g c almacen/components/producto/create-producto --skip-tests
+ng g s almacen/services/producto-service --skip-tests
