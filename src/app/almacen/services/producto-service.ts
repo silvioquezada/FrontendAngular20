@@ -21,8 +21,8 @@ export class ProductoService {
     return this.http.post(this.api, producto);
   }
 
-  actualizar(producto: any, codigo: string)
+  actualizar(producto: any, id: number)
   {
-    return this.http.put(this.api + codigo, producto);
+    return this.http.put(this.api + id, producto);
   }
 }

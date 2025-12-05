@@ -75,7 +75,7 @@ export class CreateProducto {
       'iva': this.iva,
     }
 
-    this.productoservice.actualizar(producto, this.codigo).subscribe( (data: any) =>
+    this.productoservice.actualizar(producto, this.id).subscribe( (data: any) =>
     {
       if(data.estado==2)
       {
