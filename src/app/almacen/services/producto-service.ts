@@ -25,4 +25,9 @@ export class ProductoService {
   {
     return this.http.put(this.api + id, producto);
   }
+
+  eliminar(id: number)
+  {
+    return this.http.delete(this.api + id);
+  }
 }

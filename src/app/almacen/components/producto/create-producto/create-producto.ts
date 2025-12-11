@@ -2,6 +2,7 @@ import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductoService } from '../../../services/producto-service';
 declare var bootstrap: any;
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-producto',
@@ -31,6 +32,7 @@ export class CreateProducto {
 
   guardar(): void
   {
+    this.iniciarLoader();
     const producto = {
       'codigo': this.codigo,
       'descripcion': this.descripcion,
@@ -41,16 +43,25 @@ export class CreateProducto {
 
     this.productoservice.guardar(producto).subscribe( (data: any) =>
     {
-      if(data.estado==2)
+      Swal.close();
+      if(data.estado==1)
       {
-        alert("Error al almacenar el registro");
+        Swal.fire({
+          title: "Información",
+          text: "Almacenado correctamente",
+          icon: "success"
+        });
+        this.datosenvio.emit("ok");
+        this.modal.hide();
       }
       else
       {
-        alert("Ok");
-        this.datosenvio.emit("ok");
-        this.modal.hide();
-        }
+        Swal.fire({
+          title: "Información",
+          text: "Se a originado un error",
+          icon: "error"
+        }); 
+      }
     });
   }
 
@@ -67,6 +78,7 @@ export class CreateProducto {
 
   actualizar(): void
   {
+    this.iniciarLoader();
     const producto = {
       'codigo': this.codigo,
       'descripcion': this.descripcion,
@@ -74,19 +86,41 @@ export class CreateProducto {
       'precio': this.precio,
       'iva': this.iva,
     }
-
     this.productoservice.actualizar(producto, this.id).subscribe( (data: any) =>
     {
-      if(data.estado==2)
+      Swal.close();
+      if(data.estado==1)
       {
-        alert("Error al almacenar el registro");
+        Swal.fire({
+          title: "Información",
+          text: "Actualizado correctamente",
+          icon: "success"
+        });
+        this.datosenvio.emit("ok");
+        this.modal.hide();
       }
       else
       {
-        alert("Ok");
-        this.datosenvio.emit("ok");
-        this.modal.hide();
-        }
+        Swal.fire({
+          title: "Información",
+          text: "Se a originado un error",
+          icon: "error"
+        });
+        
+      }
+    });
+  }
+
+  iniciarLoader()
+  {
+    Swal.fire({
+    title: 'Cargando...',
+    html: 'Por favor espere mientras procesamos su solicitud.',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    didOpen: () => {
+          Swal.showLoading(); 
+      }
     });
   }
 

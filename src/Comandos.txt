@@ -1,8 +1,18 @@
 Ejecutar
 npx ng serve -o
 
+npm install sweetalert2
+
 ng g c shared/components/sidebar --skip-tests
 ng g c shared/components/dashboard --skip-tests
 ng g c almacen/components/producto/listar-productos --skip-tests
 ng g c almacen/components/producto/create-producto --skip-tests
 ng g s almacen/services/producto-service --skip-tests
+
+ng g c administrar/components/usuario/login --skip-tests
+ng g s administrar/services/login-service --skip-tests
+
+
+ng g s almacen/services/producto-service --skip-tests
+
+ng g interceptor shared/services/auth
