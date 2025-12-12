@@ -13,7 +13,7 @@ export class Login {
 
   constructor(private loginservice: LoginService){}
 
-  guardar(): void
+  ingresar(): void
   {
     this.iniciarLoader();
     const login = {
