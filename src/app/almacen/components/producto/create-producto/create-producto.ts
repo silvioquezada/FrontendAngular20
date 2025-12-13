@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductoService } from '../../../services/producto-service';
 declare var bootstrap: any;
 import Swal from 'sweetalert2';
+import { ErrorService } from '../../../../shared/services/error-service';
 
 @Component({
   selector: 'app-create-producto',
@@ -22,7 +23,7 @@ export class CreateProducto {
 
   modal!: any;
 
-  constructor(private productoservice: ProductoService){}
+  constructor(private productoservice: ProductoService, private error:ErrorService){}
 
   ngAfterViewInit() {
   this.modal = new bootstrap.Modal(
@@ -32,7 +33,7 @@ export class CreateProducto {
 
   guardar(): void
   {
-    this.iniciarLoader();
+    //this.iniciarLoader();
     const producto = {
       'codigo': this.codigo,
       'descripcion': this.descripcion,
@@ -41,6 +42,7 @@ export class CreateProducto {
       'iva': this.iva,
     }
 
+    /*
     this.productoservice.guardar(producto).subscribe( (data: any) =>
     {
       Swal.close();
@@ -58,11 +60,46 @@ export class CreateProducto {
       {
         Swal.fire({
           title: "Información",
-          text: "Se a originado un error",
+          text: "Se a originado un error: " + data.mensaje,
           icon: "error"
         }); 
       }
     });
+    */
+
+    this.productoservice.guardar(producto).subscribe( (data : any) =>
+    {
+        Swal.close();
+        
+
+        if (data.estado == true)
+        {
+          Swal.fire({
+            title: "Información",
+            text: "Almacenado correctamente",
+            icon: "success"
+          });
+          this.datosenvio.emit("ok");
+          this.modal.hide();
+        }
+        else
+        {
+          Swal.fire({
+            title: "Información",
+            text: "Se a originado un error: " + data.mensaje,
+            icon: "error"
+          });
+        }
+      }, err => {
+        Swal.fire({
+            title: "Información",
+            text: "Se a originado un error: " + this.error.getClienteStatus(err.status),
+            icon: "error"
+          });
+        
+    });
+
+
   }
 
   buscarProducto(item: any): void

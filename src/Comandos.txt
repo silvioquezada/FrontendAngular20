@@ -16,3 +16,5 @@ ng g s administrar/services/login-service --skip-tests
 ng g s almacen/services/producto-service --skip-tests
 
 ng g interceptor shared/services/auth
+
+ng g s shared/services/error-service --skip-tests
