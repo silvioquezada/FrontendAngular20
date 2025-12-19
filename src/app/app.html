@@ -1,6 +1,9 @@
-<!-- <app-login></app-login> -->
+<div *ngIf="logueado==0">
+  <app-login (datosenvio)="recibirEstadoLogin($event)"></app-login>
+</div>
+
  
-<div class="app-container">
+<div *ngIf="logueado" class="app-container">
   <div class="position-relative">
     <app-sidebar
       [isSidebarCollapsed]="isSidebarCollapsed"

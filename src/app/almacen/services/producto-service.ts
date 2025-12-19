@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductoService {
-    api: string = "http://localhost:8000/api/productos"; //Lumen 8
-    //api: string = "http://127.0.0.1:8000/api/productos/"; //Laravel 12
+    //api: string = "http://localhost:8000/api/productos"; //Lumen 8
+    api: string = "http://127.0.0.1:8000/api/productos/"; //Laravel 12
 
   constructor(private http:HttpClient) {
 

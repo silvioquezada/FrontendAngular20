@@ -4,15 +4,15 @@
         <div class="card-body p-4">
             <h4 class="card-title text-center mb-4 fw-bold text-primary">Iniciar Sesión</h4>
             
-            <form action="/login" method="POST">
+            
                 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" required>
+                    <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" required [(ngModel)]="usuario">
                     <label for="inputUsuario">Usuario</label>
                 </div>
 
                 <div class="form-floating mb-4">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required [(ngModel)]="password">
                     <label for="inputPassword">Contraseña</label>
                 </div>
 
@@ -22,7 +22,7 @@
                     </button>
                 </div>
 
-            </form>
+           
         </div>
     </div>
 

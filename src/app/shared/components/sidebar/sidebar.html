@@ -15,7 +15,7 @@
               'has-children': item.children,
               'menu-item-active': item.isOpen
             }"
-            (click)="toggleMenuItem(item)"
+            (click)="handleMenuItemClick(item)"
           >
             <i [class]="item.icon"></i>
             <span class="sidebar-item-text">{{ item.label }}</span>

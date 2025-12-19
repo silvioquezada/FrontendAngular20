@@ -8,6 +8,7 @@ interface MenuItem {
   route?: string;
   children?: MenuItem[];
   isOpen?: boolean;
+  action?: () => void
 }
 
 
@@ -45,6 +46,12 @@ export class Sidebar {
       icon: 'fas fa-envelope',
       label: 'Productos',
       route: '/productos'
+    },
+    {
+      icon: 'fas fa-envelope',
+      label: 'Cerrar Sesión',
+      route: undefined,
+      action: () => this.logout()
     }
   ];
 
@@ -56,6 +63,20 @@ export class Sidebar {
     // Only toggle if sidebar is not collapsed and item has children
     if (!this.isSidebarCollapsed && item.children) {
       item.isOpen = !item.isOpen;
+    }
+  }
+
+  logout()
+  {
+    localStorage.setItem("logueado", "0");
+    window.location.reload();
+  }
+
+  handleMenuItemClick(item: MenuItem)
+  {
+    if(item.action)
+    {
+      item.action();
     }
   }
 

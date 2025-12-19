@@ -13,10 +13,32 @@ import { Login } from './administrar/components/usuario/login/login';
 export class App {
   protected readonly title = signal('FrontendAngular20');
 
+  logueado: number = 0;
+
   isSidebarCollapsed = false;
+
+  ngOnInit(): void {
+   const estadovalor = localStorage.getItem("logueado");
+   if(estadovalor=="1")
+   {
+    this.logueado=1;
+   }
+   else
+    {
+      this.logueado=0;
+    }
+  }
 
   onSidebarToggle() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+  }
+
+  recibirEstadoLogin(estado: number)
+  {
+    if(estado==1)
+    {
+      this.logueado=1;
+    }
   }
 
 }
